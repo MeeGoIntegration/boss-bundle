@@ -1,0 +1,44 @@
+To develop and prepare this package you need a suitable VM running suse 12.1 with bundler 1.2 installed
+
+Copy the Gemfile and .lock to a development directory and run
+
+  bundle install --path=vendor/bundle
+
+You may have local git repos checked out from github so to use those see the comments in the Gemfile. You need something like:
+   bundle config local.ruote-amqp /maemo/devel/BOSS/src/ruby-ruote-amqp
+for each local git repo you're working with
+
+
+Then cd to this osc project.
+
+Set DEVSRC to the dir where development takes place
+
+In the DEVSRC ensure all commits are up-to-date and freeze using:
+  bundle pack --all
+
+This script updates the .spec with any gems and tarballs
+
+DEVSRC=/maemo/devel/BOSS/bundle-approach/boss-bundle
+rm -f *gem *tar.bz2
+cp $DEVSRC/Gemfile .
+cp $DEVSRC/Gemfile.lock .
+cp $DEVSRC/vendor/cache/*gem .
+here=$(pwd)
+> Source.new
+cd $DEVSRC
+c=3
+for src in $(find vendor/cache/  -mindepth 1 -maxdepth 1 -type d); do
+   tar cfj $here/$(basename $src).tar.bz2 $src;
+   echo Source$((c++)): $(basename $src).tar.bz2 >> $here/Source.new
+done
+cd $here
+for g in *gem; do echo Source$((c++)): $(basename $g) >>$here/Source.new ; done; 
+sed -i '/^Source2:/,/# SourceEnd/ {//!d}; /^Source2:/r Source.new' boss-bundle.spec
+rm Source.new
+
+There's a lua macro to recreate the bundle cache ready for building.
+
+Update the changelog and version and run
+ osc ar
+
+Then osc ci
