@@ -18,14 +18,14 @@
 # norootforbuild
 Name:           boss-bundle
 Summary:        Bundle of gems used by BOSS
-Version:        0.0.2
+Version:        0.0.3
 Release:        1
 #
 Group:          Development/Languages/Ruby
 License:        GPLv2+ or Ruby
 #
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
-BuildRequires:  rubygems_with_buildroot_patch
+BuildRequires:  rubygems ruby-devel
 %rubygems_requires
 BuildRequires:  rubygem-bundler git gcc-c++ openssl-devel pkg-config
 Requires:       rubygem-bundler
@@ -38,40 +38,40 @@ Url:            https://wiki.merproject.org/wiki/boss
 Source0: Gemfile
 Source1: Gemfile.lock
 Source2: boss-bundle.rpmlintrc
-Source3: amqp-0aedfff3cf1b.tar.bz2
-Source4: ruote-7afe764fc7e2.tar.bz2
-Source5: ruote-amqp-c49c81f3ef3a.tar.bz2
-Source6: ruote-kit-a6d500040eac.tar.bz2
-Source7: amq-client-0.9.4.gem
-Source8: amq-protocol-0.9.4.gem
+Source3: ruote-803f191027aa.tar.bz2
+Source4: ruote-amqp-11219477dfa6.tar.bz2
+Source5: ruote-kit-617fc1c34564.tar.bz2
+Source6: amq-client-0.9.12.gem
+Source7: amqp-0.9.7.gem
+Source8: amq-protocol-1.2.0.gem
 Source9: blankslate-2.1.2.4.gem
-Source10: diff-lcs-1.1.3.gem
+Source10: diff-lcs-1.2.1.gem
 Source11: eventmachine-0.12.10.gem
-Source12: file-tail-1.0.11.gem
-Source13: haml-3.1.7.gem
-Source14: inifile-2.0.0.gem
+Source12: file-tail-1.0.12.gem
+Source13: haml-4.0.0.gem
+Source14: inifile-2.0.2.gem
 Source15: parslet-1.4.0.gem
-Source16: rack-1.4.1.gem
-Source17: rack-protection-1.2.0.gem
-Source18: rspec-2.11.0.gem
-Source19: rspec-core-2.11.1.gem
-Source20: rspec-expectations-2.11.3.gem
-Source21: rspec-mocks-2.11.2.gem
+Source16: rack-1.5.2.gem
+Source17: rack-protection-1.5.0.gem
+Source18: rspec-2.13.0.gem
+Source19: rspec-core-2.13.1.gem
+Source20: rspec-expectations-2.13.0.gem
+Source21: rspec-mocks-2.13.0.gem
 Source22: ruby2ruby-1.3.1.gem
 Source23: ruby_parser-2.3.1.gem
-Source24: rufus-cloche-1.0.2.gem
+Source24: rufus-cloche-1.0.4.gem
 Source25: rufus-dollar-1.0.4.gem
-Source26: rufus-json-1.0.1.gem
+Source26: rufus-json-1.0.4.gem
 Source27: rufus-mnemo-1.2.3.gem
-Source28: rufus-scheduler-2.0.16.gem
+Source28: rufus-scheduler-2.0.18.gem
 Source29: rufus-treechecker-1.0.8.gem
 Source30: sexp_processor-3.2.0.gem
-Source31: sinatra-1.3.3.gem
-Source32: sinatra-respond_to-0.8.0.gem
+Source31: sinatra-1.3.5.gem
+Source32: sinatra-respond_to-0.9.0.gem
 Source33: sourcify-0.5.0.gem
-Source34: tilt-1.3.3.gem
-Source35: tins-0.5.3.gem
-Source36: tzinfo-0.3.33.gem
+Source34: tilt-1.3.5.gem
+Source35: tins-0.7.2.gem
+Source36: tzinfo-0.3.37.gem
 Source37: yajl-ruby-1.1.0.gem
 # SourceEnd : This line is needed to make the script in the README work
 
